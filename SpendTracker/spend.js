@@ -3,7 +3,7 @@ var types;
 var spent;
 var firstTime = true;
 var canvas = document.querySelector("canvas").getContext("2d");
-var budget = local.budget;
+var budget = Number(local.budget);
 var end;
 
 function loadData() {
@@ -101,9 +101,10 @@ document.getElementById("saveBTN").addEventListener("click", function save() {
             localStorage.setItem(type, amount);
         }
         document.getElementById(type).innerHTML = formatNumber(localStorage.getItem(type));
+        moneyleft = budget - (spent+amount);
+        document.getElementById("moneyleftSpan").innerHTML = formatNumber(moneyleft.toString());
         closeForm();
         updateCanvas(spent, spent+amount);
-        // loadData();
     }
 })
 
