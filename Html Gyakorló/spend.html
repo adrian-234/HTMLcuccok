@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiadás követő</title>
+    <link rel="stylesheet" href="SpendTracker/spendStyle.css">
+    <link rel="stylesheet" href="C:/Users/Gép/OneDrive/Dokumentumok/HTML játékok/Html Gyakorló/Navbar/navbar.css">
+    <script src="https://kit.fontawesome.com/4455646216.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
+</head>
+<body class="light" onload="loadData()" onkeypress="budgetSave(event.key)">
+    <div id="navbar">
+        <div id="hamburger" onclick="kinyit()">
+            <div class="navbar_titles">Menü</div>
+            <div id="hamburger_wrapper">
+                <div id="hamburger_1"></div>
+                <div id="hamburger_2"></div>
+                <div id="hamburger_3"></div>
+            </div>
+        </div>
+        
+        <a href="index.html">   <i class="fa fa-calculator" aria-hidden="true"></i>    <span class="navbar_titles">  Mennyi kell még?</span></a>
+        <a href="#">    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>    <span class="navbar_titles">  Mi lesz ha...?</span></a>
+        <a href="cssmagic.html">    <i class="fa fa-css3" aria-hidden="true"></i>   <span class="navbar_titles">  Css & Js gyakorlás</span></a>
+        <a href="todo.html">    <i class="fa-solid fa-clipboard"></i>    <span class="navbar_titles">  Teendők listája</span></a>
+        <a href="spend.html">   <i class="fa-solid fa-comment-dollar"></i>    <span class="navbar_titles">  Kiadás követő</span></a>
+        
+        <div id="theme" onclick="changeTheme()"><i class="fa fa-sun-o" aria-hidden="true"></i></div>
+    </div>
+
+
+    <div id="content">
+        <h1>Kiadás követő</h1>
+        <h2>Kategóriák:     <button class="BTN" id="editBTN"><i class="fa-solid fa-pen"></i></button></h2>
+        <div id="categories"></div>
+        
+        <div id="btn_form">
+            <button id="newSpend">Kiadás +</button>
+            <div id="form">
+                <select id="selection">
+                    <option value="error">Kategória</option>
+                </select>
+                <input type="number" placeholder="Elköltött összeg" min="0" id="moneyinput">
+                <button class="BTN" id="saveBTN"><i class="fa-solid fa-check"></i></button>
+                <button class="BTN" id="cancelBTN"><i class="fa-solid fa-xmark"></i></button>
+                
+            </div>
+        </div>
+        <div id="canvasContainer">
+            <canvas width="300px" height="280px"></canvas>
+            <div id="moneyleft">Maradék pénz: <br> <span id="moneyleftSpan"></span> Ft</div>
+            <div id="budget">Havi budget: <input type="number" id="budgetSpan" readonly value=0 min="0"></input> Ft</div>
+        </div>
+    </div>
+    
+    <script src="SpendTracker/spend.js"></script>
+    <script src="Navbar/navbar.js"></script>
+</body>
+</html>
